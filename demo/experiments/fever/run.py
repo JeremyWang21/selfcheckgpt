@@ -13,15 +13,16 @@ checker = SelfCheckNLI(device=device) # Creates NLI checker obj
 def split_sentences(text):
     return [s.text.strip() for s in nlp(text).sents if s.text.strip()]
 
-
-# TODO — Replace this with your actual LLM call (OpenAI/Gemini/Claude)
+# Method to call LLM
 def call_llm(prompt, temperature=0.0):
-    return "MOCK_RESPONSE: Replace this with actual LLM output."
-
+    return (
+        "Dummy Response "
+        "Testing for 2 lines "
+    )
 
 # Load FEVER slice
 # e.g. Fever Example: {"claim": "Paris is the capital of France.", "label": "SUPPORTS"}
-with open("experiments/fever/fever_20.jsonl", "r") as f:
+with open("fever_20.jsonl", "r") as f:
     fever_items = [json.loads(l) for l in f]
 
 # Result Analysis
@@ -58,7 +59,7 @@ for ex in fever_items:
     })
 
 # Save results
-with open("experiments/fever/results/nli_results.jsonl", "w") as out:
+with open("results/nli_results.jsonl", "w") as out:
     for r in results:
         out.write(json.dumps(r) + "\n")
 
