@@ -1,6 +1,7 @@
 import json
 import spacy
 import torch
+import subprocess
 
 from selfcheckgpt.modeling_selfcheck import SelfCheckNLI
 
@@ -15,10 +16,16 @@ def split_sentences(text):
 
 # Method to call LLM
 def call_llm(prompt, temperature=0.0):
-    return (
-        "Dummy Response "
-        "Testing for 2 lines "
+    command = ["ollama", "run", "llama3:8b"]
+    result = subprocess.run(
+        command,
+        input=prompt,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",   # 👈 force UTF-8
+        errors="ignore"     # 👈 drop any dodgy bytes instead of crashing
     )
+    return result.stdout.strip()
 
 # Load FEVER slice
 # e.g. Fever Example: {"claim": "Paris is the capital of France.", "label": "SUPPORTS"}
