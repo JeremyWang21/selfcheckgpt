@@ -1,0 +1,6 @@
+# Testing scaffold
+
+- These CPU-only smoke tests cover each SelfCheckGPT scorer.
+- Add minimal fixtures or mocking to avoid downloading large models or calling external APIs.
+- Prefer lightweight strings and skip markers when dependencies are unavailable.
+- Run `pytest tests -q` to execute the smoke suite.

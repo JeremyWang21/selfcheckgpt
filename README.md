@@ -17,6 +17,7 @@ SelfCheckGPT
 ### Installation
 
     pip install selfcheckgpt
+    python -m spacy download en_core_web_sm
 
 ### SelfCheckGPT Usage: BERTScore, QA, n-gram
 
