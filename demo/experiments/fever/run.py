@@ -22,8 +22,8 @@ def call_llm(prompt, temperature=0.0):
         input=prompt,
         capture_output=True,
         text=True,
-        encoding="utf-8",   # 👈 force UTF-8
-        errors="ignore"     # 👈 drop any dodgy bytes instead of crashing
+        encoding="utf-8",   
+        errors="ignore"     
     )
     return result.stdout.strip()
 
