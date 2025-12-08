@@ -1,0 +1,1097 @@
+{
+  "dataset": "fever",
+  "input_file": "fever_50.jsonl",
+  "timestamp": "2025-12-08T19:05:45.998252",
+  "config": {
+    "model": "llama-3.1-8b-instant",
+    "num_samples": 4,
+    "device": "mps"
+  },
+  "metrics": {
+    "supports": {
+      "count": 24,
+      "mean_nli_score": 0.1058739037065994,
+      "std_nli_score": 0.17873317844297504,
+      "median_nli_score": 0.008252963791164802
+    },
+    "refutes": {
+      "count": 26,
+      "mean_nli_score": 0.18314645517811862,
+      "std_nli_score": 0.2282087403899611,
+      "median_nli_score": 0.09015372387269358
+    },
+    "separation_auc": 0.6794871794871795,
+    "cohens_d": 0.3769958441922483
+  },
+  "runtime_seconds": 919.4891068935394,
+  "num_processed": 50,
+  "results": [
+    {
+      "claim": "Paris is the capital of France.",
+      "label": "SUPPORTS",
+      "response": "Yes, the statement is true. Paris is indeed the capital city of France.",
+      "samples": [
+        "Yes, this statement is true. Paris has been the capital of France since 987 and continues to be so to this day.",
+        "Yes, that statement is true. Paris is indeed the capital and the most populous city of France.",
+        "Yes, this statement is true. Paris has been the capital of France since 987, serving as the country's central administrative, cultural, and economic hub."
+      ],
+      "sentences": [
+        "Yes, the statement is true.",
+        "Paris is indeed the capital city of France."
+      ],
+      "nli_scores": [
+        0.0006368340788564334,
+        0.00014278887586745745
+      ],
+      "avg_nli_score": 0.00038981147736194544,
+      "max_nli_score": 0.0006368340788564334
+    },
+    {
+      "claim": "The Earth is flat.",
+      "label": "REFUTES",
+      "response": "No, this statement is false. The overwhelming scientific evidence and observations confirm that the Earth is an oblate spheroid, meaning it is mostly spherical but slightly flattened at the poles and bulging at the equator.",
+      "samples": [
+        "No, this statement is not true. \n\nThe overwhelming scientific evidence and consensus among experts confirm that the Earth is an oblate spheroid, meaning it is roughly spherical in shape but slightly flattened at the poles and bulging at the equator.",
+        "No, the statement is not true. \n\nThe overwhelming scientific evidence supports the fact that the Earth is an oblate spheroid, meaning it is roughly spherical in shape but slightly flattened at the poles and bulging at the equator. This has been proven through various methods, including:\n\n- Satellite imagery\n- Ships disappearing over the horizon\n- Shadows on the moon during lunar eclipses\n- Measurements of the Earth's circumference\n- Many other observations and experiments.\n\nThe idea of a flat Earth is a disproven theory that has been debunked by science and widely accepted by the global community.",
+        "No, the statement is not true. The overwhelming scientific evidence and observations confirm that the Earth is an oblate spheroid, meaning it is roughly spherical in shape but slightly flattened at the poles and bulging at the equator. This has been demonstrated through various methods, including satellite imagery, ship navigation, and measurements of the Earth's shadow during lunar eclipses."
+      ],
+      "sentences": [
+        "No, this statement is false.",
+        "The overwhelming scientific evidence and observations confirm that the Earth is an oblate spheroid, meaning it is mostly spherical but slightly flattened at the poles and bulging at the equator."
+      ],
+      "nli_scores": [
+        0.0002665024173135559,
+        0.0006655795150436461
+      ],
+      "avg_nli_score": 0.000466040966178601,
+      "max_nli_score": 0.0006655795150436461
+    },
+    {
+      "claim": "Water boils at 100 degrees Celsius at sea level.",
+      "label": "SUPPORTS",
+      "response": "This statement is generally true, but with some limitations. At sea level, water boils at 99.97 degrees Celsius due to atmospheric pressure. However, the exact temperature can vary slightly depending on the purity of the water and other factors. But for practical purposes, 100 degrees Celsius is often used as the boiling point of water at sea level.",
+      "samples": [
+        "The statement is true. However, it's worth noting that this is only true for pure water at standard atmospheric pressure (1 atm or 1013 mbar), which is typically found at sea level.",
+        "This statement is true. At standard atmospheric pressure (sea level), water boils at 100 degrees Celsius (212 degrees Fahrenheit).",
+        "This statement is true. Water boils at 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure, which is approximately equivalent to sea level."
+      ],
+      "sentences": [
+        "This statement is generally true, but with some limitations.",
+        "At sea level, water boils at 99.97 degrees Celsius due to atmospheric pressure.",
+        "However, the exact temperature can vary slightly depending on the purity of the water and other factors.",
+        "But for practical purposes, 100 degrees Celsius is often used as the boiling point of water at sea level."
+      ],
+      "nli_scores": [
+        0.04621509254987662,
+        0.8835956652959188,
+        0.6306684116522471,
+        0.5961832404136658
+      ],
+      "avg_nli_score": 0.5391656024779271,
+      "max_nli_score": 0.8835956652959188
+    },
+    {
+      "claim": "The Great Wall of China is visible from space with the naked eye.",
+      "label": "REFUTES",
+      "response": "This statement is false. The Great Wall of China is often said to be visible from space, but this is a common myth. In reality, it's only visible from low Earth orbit (about 200-300 km high) with the aid of magnification, not from the naked eye from space.",
+      "samples": [
+        "The statement is false. The Great Wall of China is often claimed to be visible from space, but this is a myth. In reality, it's only visible from low Earth orbit (about 200 km altitude) and only under certain conditions, such as with the aid of magnification or in high-resolution images. From the distance of a typical low Earth orbit, it's not visible to the naked eye.",
+        "This statement is false. Despite its reputation, the Great Wall of China is not visible from space with the naked eye. It is a common myth that has been debunked by astronauts and satellite images. The wall is only about 30 feet wide and blends in with the surrounding terrain, making it invisible to the naked eye from space.",
+        "The statement is false. The Great Wall of China is often referred to as being visible from space, but this is a common myth. In reality, it is only visible from low Earth orbit with the aid of magnification, not with the naked eye from space."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "The Great Wall of China is often said to be visible from space, but this is a common myth.",
+        "In reality, it's only visible from low Earth orbit (about 200-300 km high) with the aid of magnification, not from the naked eye from space."
+      ],
+      "nli_scores": [
+        0.003941686979184548,
+        0.000294074978834639,
+        0.04105440154671669
+      ],
+      "avg_nli_score": 0.015096721168245293,
+      "max_nli_score": 0.04105440154671669
+    },
+    {
+      "claim": "Albert Einstein developed the theory of relativity.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. Albert Einstein developed the theory of special relativity (1905) and general relativity (1915), two fundamental concepts in modern physics that revolutionized our understanding of space and time.",
+      "samples": [
+        "True. Albert Einstein published two fundamental papers in 1905 that formed the basis of his theory of special relativity. He later expanded this theory to include gravity in his theory of general relativity in 1915.",
+        "Yes, this statement is true. Albert Einstein is widely recognized for developing the special theory of relativity (1905) and the general theory of relativity (1915).",
+        "The statement is true. Albert Einstein is widely recognized for developing the special theory of relativity (1905) and the general theory of relativity (1915), which revolutionized our understanding of space and time."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "Albert Einstein developed the theory of special relativity (1905) and general relativity (1915), two fundamental concepts in modern physics that revolutionized our understanding of space and time."
+      ],
+      "nli_scores": [
+        0.001026024459861219,
+        0.1764146943266193
+      ],
+      "avg_nli_score": 0.08872035939324026,
+      "max_nli_score": 0.1764146943266193
+    },
+    {
+      "claim": "Humans use only 10 percent of their brain.",
+      "label": "REFUTES",
+      "response": "This statement is a common myth. The idea that humans use only 10 percent of their brain is not supported by scientific evidence. While it is true that some areas of the brain are more active than others at any given time, brain imaging techniques have shown that most areas of the brain are active and functional almost all the time.",
+      "samples": [
+        "This statement is a myth. The idea that humans use only 10 percent of their brain originated from a 1907 book by psychologist and author William James. However, it has been largely debunked by modern neuroscience, which shows that different areas of the brain are active at different times and that even seemingly mundane tasks require the coordination of multiple brain regions.",
+        "This statement is a common myth. It's not entirely true. While it's true that some areas of the brain can be underactive or dormant at times, brain imaging techniques have shown that most areas of the brain are active most of the time. It's estimated that humans use almost all areas of their brain, to varying degrees, depending on the task or activity.",
+        "This statement is a common myth. Research suggests that humans use nearly 100% of their brain, but not all areas are active at the same time. Different neurons and areas are active depending on the task, but the brain is highly efficient and utilizes almost all its capacity."
+      ],
+      "sentences": [
+        "This statement is a common myth.",
+        "The idea that humans use only 10 percent of their brain is not supported by scientific evidence.",
+        "While it is true that some areas of the brain are more active than others at any given time, brain imaging techniques have shown that most areas of the brain are active and functional almost all the time."
+      ],
+      "nli_scores": [
+        0.002881523260536293,
+        0.1515920921228826,
+        0.06105219231297573
+      ],
+      "avg_nli_score": 0.07184193589879821,
+      "max_nli_score": 0.1515920921228826
+    },
+    {
+      "claim": "Mount Everest is the tallest mountain on Earth.",
+      "label": "SUPPORTS",
+      "response": "This statement is generally true. However, it's worth noting that there is some debate among geologists and mountaineers. The definition of \"tallest\" can be subjective, as the height of a mountain is measured from its base to its summit. Mount Everest is the highest peak above sea level, but if you consider the height from its base to the summit, Mauna Kea in Hawaii is taller.",
+      "samples": [
+        "The statement is partially true. Mount Everest is the tallest mountain above sea level, but it's not the tallest mountain overall. When measuring from the Earth's core, Mauna Kea, a volcano in Hawaii, is actually the tallest mountain, as it rises over 10,000 meters (33,000 feet) from its base on the ocean floor.",
+        "This statement is true. Mount Everest is widely considered the tallest mountain on Earth, with a height of 8,848 meters (29,029 feet) above sea level.",
+        "This statement is true. Mount Everest, located in the Himalayas on the border between Nepal and Tibet, China, is the highest mountain above sea level, with a height of approximately 8,848 meters (29,029 feet)."
+      ],
+      "sentences": [
+        "This statement is generally true.",
+        "However, it's worth noting that there is some debate among geologists and mountaineers.",
+        "The definition of \"tallest\" can be subjective, as the height of a mountain is measured from its base to its summit.",
+        "Mount Everest is the highest peak above sea level, but if you consider the height from its base to the summit, Mauna Kea in Hawaii is taller."
+      ],
+      "nli_scores": [
+        0.007054768580322464,
+        0.5840902402997017,
+        0.6526320887108644,
+        0.642881296252502
+      ],
+      "avg_nli_score": 0.47166459846084763,
+      "max_nli_score": 0.6526320887108644
+    },
+    {
+      "claim": "Goldfish have a three-second memory.",
+      "label": "REFUTES",
+      "response": "The statement is a common myth. Research suggests that goldfish have a memory span of around 3-5 months, not seconds. They can learn and recall various tasks, colors, and sounds over time.",
+      "samples": [
+        "The statement is a common myth. Goldfish do not have a three-second memory. This myth likely originated from a misunderstanding of their brain structure and function. While goldfish do not have a long-term memory like humans, their memory span is estimated to be around 3-5 months, allowing them to learn and recall certain behaviors and events.",
+        "This statement is a common myth. Goldfish do not have a three-second memory. In reality, their memory span is estimated to be around 3-5 months, similar to that of other fish. They can recognize and remember certain stimuli, such as food and their environment, for an extended period.",
+        "This statement is a common myth. Goldfish actually have a memory span of around 3-5 months, not 3 seconds. They are capable of learning and remembering certain behaviors, colors, and textures."
+      ],
+      "sentences": [
+        "The statement is a common myth.",
+        "Research suggests that goldfish have a memory span of around 3-5 months, not seconds.",
+        "They can learn and recall various tasks, colors, and sounds over time."
+      ],
+      "nli_scores": [
+        0.003822393909407159,
+        0.0016634891120096047,
+        0.3412767770544936
+      ],
+      "avg_nli_score": 0.1155875533586368,
+      "max_nli_score": 0.3412767770544936
+    },
+    {
+      "claim": "The Amazon rainforest produces 20 percent of the world's oxygen.",
+      "label": "REFUTES",
+      "response": "This statement is an exaggeration and not entirely accurate. The Amazon rainforest does contribute significantly to the world's oxygen supply, but its exact contribution is around 6-8 percent, not 20 percent.",
+      "samples": [
+        "This statement is an exaggeration. While the Amazon rainforest does play a crucial role in producing oxygen, it's estimated that it produces around 6-8% of the world's oxygen, not 20%.",
+        "This statement is an overestimation. The Amazon rainforest is often credited with producing about 6-8% of the world's oxygen, making it a significant contributor, but not 20%.",
+        "This statement is an overstatement. The Amazon rainforest is a significant producer of oxygen, but it's estimated to produce around 6-8 percent of the world's oxygen, not 20 percent. The exact percentage is difficult to determine, but 6-8 percent is a commonly cited estimate."
+      ],
+      "sentences": [
+        "This statement is an exaggeration and not entirely accurate.",
+        "The Amazon rainforest does contribute significantly to the world's oxygen supply, but its exact contribution is around 6-8 percent, not 20 percent."
+      ],
+      "nli_scores": [
+        0.00022616690451589724,
+        0.0009867429228809972
+      ],
+      "avg_nli_score": 0.0006064549136984472,
+      "max_nli_score": 0.0009867429228809972
+    },
+    {
+      "claim": "DNA was discovered by Watson and Crick.",
+      "label": "SUPPORTS",
+      "response": "The statement is partially true. James Watson and Francis Crick are credited with discovering the double helix structure of DNA in 1953. However, they did not discover DNA itself. The discovery of DNA is credited to Friedrich Miescher in 1869, who first isolated the molecule.",
+      "samples": [
+        "This statement is partially true. DNA was discovered by James Watson and Francis Crick, but it was already known to exist. They are credited with determining the double helix structure of DNA through X-ray crystallography data provided by Rosalind Franklin and Maurice Wilkins.",
+        "This statement is partially true. James Watson and Francis Crick are credited with determining the double helix structure of DNA, but they did not discover DNA itself. The discovery of DNA's existence is attributed to Friedrich Miescher in 1869. Watson and Crick's work built upon earlier research by Rosalind Franklin and Maurice Wilkins.",
+        "The statement is partially true. James Watson and Francis Crick, along with Rosalind Franklin and Maurice Wilkins, made significant contributions to the discovery of DNA's structure. Watson and Crick are credited with the development of the double helix model, but they relied on the data and x-ray crystallography work of Franklin and Wilkins."
+      ],
+      "sentences": [
+        "The statement is partially true.",
+        "James Watson and Francis Crick are credited with discovering the double helix structure of DNA in 1953.",
+        "However, they did not discover DNA itself.",
+        "The discovery of DNA is credited to Friedrich Miescher in 1869, who first isolated the molecule."
+      ],
+      "nli_scores": [
+        0.001856571373840173,
+        0.6064257423082987,
+        0.6248839652592627,
+        0.8985548416773478
+      ],
+      "avg_nli_score": 0.5329302801546874,
+      "max_nli_score": 0.8985548416773478
+    },
+    {
+      "claim": "Lightning never strikes the same place twice.",
+      "label": "REFUTES",
+      "response": "This statement is false.  Lightning can and does strike the same place multiple times. The Empire State Building in New York City, for example, is hit by lightning on average about 25 times per year.",
+      "samples": [
+        "This statement is a common myth.  According to the National Weather Service, lightning can and does strike the same place multiple times. The Empire State Building in New York City, for example, is hit by lightning on average about 25 times per year.",
+        "This statement is false.  Lightning can and does strike the same place twice. There are many documented cases of lightning striking the same location multiple times, and the Empire State Building in New York City is a famous example, as it is hit by lightning on average about 25 times per year.",
+        "This statement is a common myth. While lightning strikes are extremely rare, it is possible for a location to be struck by lightning multiple times. In fact, the Empire State Building in New York City is hit by lightning on average about 25 times per year."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "Lightning can and does strike the same place multiple times.",
+        "The Empire State Building in New York City, for example, is hit by lightning on average about 25 times per year."
+      ],
+      "nli_scores": [
+        0.0033762378346485398,
+        0.16526702721603215,
+        0.001019060461355063
+      ],
+      "avg_nli_score": 0.056554108504011914,
+      "max_nli_score": 0.16526702721603215
+    },
+    {
+      "claim": "The speed of light is approximately 300,000 kilometers per second.",
+      "label": "SUPPORTS",
+      "response": "That statement is true, but it's not entirely accurate. The speed of light is approximately 299,792 kilometers per second in a vacuum.",
+      "samples": [
+        "The statement is almost true, but not exactly. The speed of light in a vacuum is approximately 299,792 kilometers per second.",
+        "The statement is almost true. The speed of light is approximately 299,792 kilometers per second.",
+        "The statement is almost true. The speed of light in a vacuum is approximately 299,792 kilometers per second."
+      ],
+      "sentences": [
+        "That statement is true, but it's not entirely accurate.",
+        "The speed of light is approximately 299,792 kilometers per second in a vacuum."
+      ],
+      "nli_scores": [
+        0.03154863851765791,
+        0.03977201290157003
+      ],
+      "avg_nli_score": 0.03566032570961397,
+      "max_nli_score": 0.03977201290157003
+    },
+    {
+      "claim": "Bulls are angered by the color red.",
+      "label": "REFUTES",
+      "response": "This statement is false. The idea that bulls are angered by the color red is a common myth. In reality, bulls are not colorblind to red, but they are more likely to be agitated by movement and perceived threats rather than specific colors.",
+      "samples": [
+        "This statement is false. Bulls are not angered by the color red. The myth that bulls are enraged by the color red originated from a misunderstanding of bullfighting. In reality, bulls are more likely to be provoked by movement, noise, and the matador's cape, not the color red itself.",
+        "This statement is false. The myth that bulls are angered by the color red comes from a common misconception. In reality, bulls are not colorblind, but their eyesight is not as sharp as humans. What actually provokes a bull is the movement of the matador's cape, which can be any color. The cape's movement mimics a predator, causing the bull to charge.",
+        "This statement is false. Bulls are not angered by the color red. The myth that bulls are enraged by the color red originated from the use of red capes in bullfighting, but the actual reason for the bulls' agitation is the movement of the cape, not the color red itself."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "The idea that bulls are angered by the color red is a common myth.",
+        "In reality, bulls are not colorblind to red, but they are more likely to be agitated by movement and perceived threats rather than specific colors."
+      ],
+      "nli_scores": [
+        0.002010380014932404,
+        0.0005801876735252639,
+        0.00509995105676353
+      ],
+      "avg_nli_score": 0.002563506248407066,
+      "max_nli_score": 0.00509995105676353
+    },
+    {
+      "claim": "Pluto is classified as a dwarf planet.",
+      "label": "SUPPORTS",
+      "response": "Yes, that statement is true. Pluto was reclassified as a dwarf planet by the International Astronomical Union (IAU) in 2006..",
+      "samples": [
+        "Yes, that statement is true. Pluto was reclassified as a dwarf planet in 2006 by the International Astronomical Union (IAU) due to its unique characteristics and orbital patterns.",
+        "Yes, that statement is true. Pluto was reclassified as a dwarf planet by the International Astronomical Union (IAU) in 2006..",
+        "The statement is true. Pluto was reclassified as a dwarf planet by the International Astronomical Union (IAU) in 2006, due to its small size and unique orbital characteristics."
+      ],
+      "sentences": [
+        "Yes, that statement is true.",
+        "Pluto was reclassified as a dwarf planet by the International Astronomical Union (IAU) in 2006.."
+      ],
+      "nli_scores": [
+        0.0018000195317047958,
+        0.0024209722178056836
+      ],
+      "avg_nli_score": 0.0021104958747552396,
+      "max_nli_score": 0.0024209722178056836
+    },
+    {
+      "claim": "Bananas grow on trees.",
+      "label": "REFUTES",
+      "response": "This statement is false. Bananas grow on large plants or pseudostems, not trees. These pseudostems are actually a cluster of long, curved leaves that emerge from the base of the plant.",
+      "samples": [
+        "This statement is false. Bananas grow on large plants, specifically a type of herb called a banana plant, which is often mistaken for a tree.",
+        "False. Bananas grow on large plants, specifically the banana plant, which is a type of herb. It's often mistaken for a tree, but it doesn't have a single main trunk.",
+        "This statement is false. Bananas grow on large plants called banana plants, not trees. Banana plants belong to the same family as lilies and orchids."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "Bananas grow on large plants or pseudostems, not trees.",
+        "These pseudostems are actually a cluster of long, curved leaves that emerge from the base of the plant."
+      ],
+      "nli_scores": [
+        0.002090835439351698,
+        0.13954909145832062,
+        0.632709672053655
+      ],
+      "avg_nli_score": 0.2581165329837758,
+      "max_nli_score": 0.632709672053655
+    },
+    {
+      "claim": "The human body has 206 bones.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. The adult human body typically consists of 206 bones. However, this number can vary slightly from person to person due to individual differences and variations in bone development.",
+      "samples": [
+        "This statement is generally true. The adult human body typically has 206 bones, however, this number can vary slightly throughout a person's life due to bone fusion and other factors.",
+        "This statement is true. The human adult body typically consists of 206 bones. However, this number can vary slightly from person to person due to factors like bone fusion or extra bones in rare cases.",
+        "This statement is generally true. However, it's worth noting that the number of bones in the human body can vary slightly from person to person due to individual differences in bone development and fusion. On average, the adult human body has 206 bones."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "The adult human body typically consists of 206 bones.",
+        "However, this number can vary slightly from person to person due to individual differences and variations in bone development."
+      ],
+      "nli_scores": [
+        0.003914512034195165,
+        0.0003646929520376337,
+        0.0014591276315816988
+      ],
+      "avg_nli_score": 0.001912777539271499,
+      "max_nli_score": 0.003914512034195165
+    },
+    {
+      "claim": "Napoleon Bonaparte was unusually short.",
+      "label": "REFUTES",
+      "response": "This statement is a common myth.  Napoleon Bonaparte was actually around 5 feet 6-7 inches (169-170 cm) tall, which was slightly above average height for a Frenchman of his time. The myth that he was unusually short may have originated from British propaganda during the Napoleonic Wars, exaggerating his height to belittle him.",
+      "samples": [
+        "This statement is often misinterpreted. Napoleon Bonaparte was not unusually short for his time. He was about 5 feet 6 inches (169 cm) tall, which was actually slightly above average height for a Frenchman in the late 18th century. The myth of his shortness likely arose from British propaganda during his time.",
+        "This statement is a common myth. While Napoleon Bonaparte was indeed shorter than average for a Frenchman of his time, estimates of his height vary, and he was not unusually short. Most historians believe he was around 5 feet 6-7 inches (169-170 cm) tall, which was not significantly shorter than the average Frenchman of his era.",
+        "This statement is false. Napoleon Bonaparte's height was often reported as around 5 feet 6 inches to 5 feet 7 inches (169-170 cm), which was slightly above average height for a Frenchman of his time."
+      ],
+      "sentences": [
+        "This statement is a common myth.",
+        "Napoleon Bonaparte was actually around 5 feet 6-7 inches (169-170 cm) tall, which was slightly above average height for a Frenchman of his time.",
+        "The myth that he was unusually short may have originated from British propaganda during the Napoleonic Wars, exaggerating his height to belittle him."
+      ],
+      "nli_scores": [
+        0.00720022323851784,
+        0.08801145126926713,
+        0.4589768002430598
+      ],
+      "avg_nli_score": 0.18472949158361493,
+      "max_nli_score": 0.4589768002430598
+    },
+    {
+      "claim": "The Pacific Ocean is the largest ocean on Earth.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. The Pacific Ocean is the largest of the world's five oceans, covering an area of approximately 155.6 million square kilometers (60.1 million square miles) and accounting for approximately 46% of the Earth's total ocean area.",
+      "samples": [
+        "The statement is true. The Pacific Ocean is indeed the largest of the world's five oceans, covering an area of approximately 155.6 million square kilometers (60.1 million square miles) and accounting for approximately 46% of the Earth's total ocean area.",
+        "Yes, the statement is true. The Pacific Ocean is the largest of the world's five oceans, covering an area of approximately 155.6 million square kilometers (60.1 million square miles).",
+        "The statement is true. The Pacific Ocean is indeed the largest of the world's five oceans, covering an area of approximately 155.6 million square kilometers (60.1 million square miles)."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "The Pacific Ocean is the largest of the world's five oceans, covering an area of approximately 155.6 million square kilometers (60.1 million square miles) and accounting for approximately 46% of the Earth's total ocean area."
+      ],
+      "nli_scores": [
+        0.0020837406627833843,
+        0.07308258515937875
+      ],
+      "avg_nli_score": 0.03758316291108107,
+      "max_nli_score": 0.07308258515937875
+    },
+    {
+      "claim": "Sharks can smell a drop of blood from a mile away.",
+      "label": "REFUTES",
+      "response": "This statement is an exaggeration. Sharks have an excellent sense of smell, but the exact range is not a mile. They can detect one drop of blood in 100 liters of water, which is still impressive.",
+      "samples": [
+        "This statement is an exaggeration. Sharks have an excellent sense of smell, and they can detect blood in the water. However, it's unlikely they can smell a drop of blood from a mile away. The actual detection range is estimated to be around 1-2 kilometers (0.62-1.24 miles), depending on the shark species and water conditions.",
+        "This statement is an exaggeration. While sharks have a highly developed sense of smell, they can detect blood in the water, but the distance is typically much shorter, around 100-200 feet (30-60 meters), not a mile.",
+        "This statement is an exaggeration. Sharks have an extremely developed sense of smell, and they can detect blood in the water at a distance. However, the exact distance varies depending on several factors, including the type of shark and water conditions. While some sharks can detect blood in the water at distances of up to 100 feet (30 meters) or more, a mile (1.6 kilometers) away is an unlikely claim."
+      ],
+      "sentences": [
+        "This statement is an exaggeration.",
+        "Sharks have an excellent sense of smell, but the exact range is not a mile.",
+        "They can detect one drop of blood in 100 liters of water, which is still impressive."
+      ],
+      "nli_scores": [
+        0.005053367310514052,
+        0.000792301909920449,
+        0.8960482478141785
+      ],
+      "avg_nli_score": 0.30063130567820434,
+      "max_nli_score": 0.8960482478141785
+    },
+    {
+      "claim": "The Mona Lisa was painted by Leonardo da Vinci.",
+      "label": "SUPPORTS",
+      "response": "Yes, this statement is true. The Mona Lisa is one of the most famous paintings in the world, and it is widely accepted that it was painted by the Italian artist Leonardo da Vinci in the early 16th century.",
+      "samples": [
+        "This statement is true. The Mona Lisa is widely considered to be one of Leonardo da Vinci's most famous works, and it is generally accepted that he painted it in the early 16th century, specifically around 1503-1506.",
+        "Yes, this statement is true. The Mona Lisa is one of the most famous paintings by the Italian polymath and artist Leonardo da Vinci, created in the early 16th century.",
+        "Yes, this statement is true. The Mona Lisa was indeed painted by the renowned Italian artist Leonardo da Vinci in the early 16th century, specifically between 1503 and 1506."
+      ],
+      "sentences": [
+        "Yes, this statement is true.",
+        "The Mona Lisa is one of the most famous paintings in the world, and it is widely accepted that it was painted by the Italian artist Leonardo da Vinci in the early 16th century."
+      ],
+      "nli_scores": [
+        0.001059439765716282,
+        0.006192303825325022
+      ],
+      "avg_nli_score": 0.003625871795520652,
+      "max_nli_score": 0.006192303825325022
+    },
+    {
+      "claim": "The Moon is made of cheese.",
+      "label": "REFUTES",
+      "response": "No, this statement is not true. There is no scientific evidence to support the idea that the Moon is made of cheese. The Moon is actually a rocky, airless body composed of silicate minerals and metals.",
+      "samples": [
+        "False. This is a common myth or joke, but there is no scientific evidence to support the claim that the Moon is made of cheese. The Moon's composition is primarily rock and metal, and it has been extensively studied through space missions and observations.",
+        "No, this statement is not true. The Moon is actually composed of rock, primarily silicate minerals such as feldspar, pyroxene, and olivine.",
+        "No, this statement is not true. The Moon's composition is primarily silicate rocks and metals, similar to the Earth's crust, but with different proportions. There is no scientific evidence to support the idea that the Moon is made of cheese."
+      ],
+      "sentences": [
+        "No, this statement is not true.",
+        "There is no scientific evidence to support the idea that the Moon is made of cheese.",
+        "The Moon is actually a rocky, airless body composed of silicate minerals and metals."
+      ],
+      "nli_scores": [
+        0.0008180369234954318,
+        0.12302148072437073,
+        0.017899737615759175
+      ],
+      "avg_nli_score": 0.04724641842120844,
+      "max_nli_score": 0.12302148072437073
+    },
+    {
+      "claim": "Tokyo is the most populous city in the world.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. According to the United Nations, Tokyo is the most populous city in the world, with a population of over 38 million people in its metropolitan area.",
+      "samples": [
+        "This statement is true, but with some nuance. According to the United Nations, as of 2021, Tokyo is the most populous metropolitan area in the world, with over 38 million people. However, in terms of the city proper (not the metropolitan area), the title is sometimes given to other cities like Shanghai or New York City, depending on the criteria used.",
+        "This statement is partially true. According to the latest available data, Tokyo is the most populous metropolitan area in the world. However, the definition of a city and the population figures can vary depending on the source.",
+        "This statement may be true, but it depends on the time frame considered. As of my cut-off knowledge in 2023, Tokyo is the most populous metropolitan area in the world, with a population of over 38 million people. However, according to the United Nations, the city proper (not metropolitan area) of Tokyo has a population of around 13.9 million people, making New York City the most populous city proper in the world.\n\nIt's essential to specify whether you're referring to the city proper or the metropolitan area for an accurate assessment."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "According to the United Nations, Tokyo is the most populous city in the world, with a population of over 38 million people in its metropolitan area."
+      ],
+      "nli_scores": [
+        0.18678599541696408,
+        0.24413618996428946
+      ],
+      "avg_nli_score": 0.21546109269062677,
+      "max_nli_score": 0.24413618996428946
+    },
+    {
+      "claim": "Vikings wore horned helmets in battle.",
+      "label": "REFUTES",
+      "response": "This statement is false. The popular image of Vikings wearing horned helmets originated from 19th-century Romanticist art and has been perpetuated by films and media. There is no historical evidence to support the use of horned helmets by Vikings in battle.",
+      "samples": [
+        "This statement is false. The popular image of Vikings wearing horned helmets originated from 19th-century romanticism and was perpetuated by opera sets and costumes, but there is no historical evidence to support it. Archaeological findings and medieval depictions suggest that Viking warriors wore simple conical or bowl-shaped helmets.",
+        "This statement is false. The idea of Vikings wearing horned helmets originated from 19th-century Romanticist and Wagnerian depictions of Norse mythology. Archaeological evidence contradicts this image of Vikings, showing that they actually wore simple helmets without horns.",
+        "This statement is false. The popular image of Vikings wearing horned helmets is a 19th-century romanticization and has been debunked by historians. Archaeological findings and written accounts from the Viking Age do not support the existence of horned helmets."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "The popular image of Vikings wearing horned helmets originated from 19th-century Romanticist art and has been perpetuated by films and media.",
+        "There is no historical evidence to support the use of horned helmets by Vikings in battle."
+      ],
+      "nli_scores": [
+        0.003986596285055081,
+        0.8109492858250936,
+        0.0021283629272753992
+      ],
+      "avg_nli_score": 0.27235474834580803,
+      "max_nli_score": 0.8109492858250936
+    },
+    {
+      "claim": "The Amazon River is the longest river in the world.",
+      "label": "SUPPORTS",
+      "response": "No, the statement is false. The Nile River is generally considered the longest river in the world, stretching approximately 6,695 kilometers (4,160 miles).",
+      "samples": [
+        "No, this statement is false. The Amazon River is the largest river by discharge volume, but the longest river in the world is the Nile River, which stretches approximately 6,695 kilometers (4,160 miles) in length.",
+        "No, this statement is false. The Nile River is often considered the longest river in the world, but this can be debated as measurements and sources vary. However, the Amazon River is the largest river by discharge volume.",
+        "The statement is false. The Amazon River is the longest river by discharge volume, but the Nile River is generally considered the longest river in the world by length, at approximately 6,695 kilometers (4,160 miles)."
+      ],
+      "sentences": [
+        "No, the statement is false.",
+        "The Nile River is generally considered the longest river in the world, stretching approximately 6,695 kilometers (4,160 miles)."
+      ],
+      "nli_scores": [
+        0.0007327311905100942,
+        0.003402484212225924
+      ],
+      "avg_nli_score": 0.0020676077013680088,
+      "max_nli_score": 0.003402484212225924
+    },
+    {
+      "claim": "Cracking your knuckles causes arthritis.",
+      "label": "REFUTES",
+      "response": "This statement is false. Research has not found a direct link between knuckle cracking (also known as knuckle popping or joint cracking) and an increased risk of developing arthritis. However, repetitive knuckle cracking may lead to joint instability and potentially cause damage to ligaments and surrounding tissues.",
+      "samples": [
+        "No, this statement is not true. Research suggests that habitual knuckle cracking, also known as knuckle popping or knuckle cracking, is not directly linked to the development of arthritis. However, frequent knuckle cracking may lead to joint instability and inflammation, which could potentially contribute to joint damage over time.",
+        "No, this statement is generally considered false. \n\nResearch suggests that habitual knuckle cracking (also known as knuckle popping) is not a direct cause of arthritis. However, it may be associated with joint instability and reduced grip strength. The exact relationship between knuckle cracking and arthritis is still debated, but there is no conclusive evidence to support a direct causal link.",
+        "This statement is partially false. \n\nResearch suggests that habitual knuckle cracking (also known as knuckle popping or knuckle cracking syndrome) is associated with joint instability, reduced grip strength, and potentially increased risk of osteoarthritis. However, it's not a direct cause of arthritis. The exact relationship between knuckle cracking and arthritis is still being studied, but it's likely that the repeated stress and strain on the joints contribute to the increased risk."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "Research has not found a direct link between knuckle cracking (also known as knuckle popping or joint cracking) and an increased risk of developing arthritis.",
+        "However, repetitive knuckle cracking may lead to joint instability and potentially cause damage to ligaments and surrounding tissues."
+      ],
+      "nli_scores": [
+        0.027837280154926702,
+        0.0019537435146048665,
+        0.02537511397774021
+      ],
+      "avg_nli_score": 0.018388712549090594,
+      "max_nli_score": 0.027837280154926702
+    },
+    {
+      "claim": "The Great Pyramid of Giza is the oldest of the Seven Wonders.",
+      "label": "SUPPORTS",
+      "response": "This statement is partially true but also partially incorrect. The Great Pyramid of Giza is indeed one of the Seven Wonders of the Ancient World, but it is not the oldest. The oldest of the Seven Wonders is often debated among historians, but the Great Pyramid of Giza is generally considered to be one of the most well-preserved and oldest of these ancient structures, built around 2580 BC.",
+      "samples": [
+        "This statement is not entirely accurate. The Great Pyramid of Giza is indeed one of the Seven Wonders of the Ancient World, but it is not the oldest. It was built around 2580 BC, making it around 4,300 years old.\n\nHowever, the oldest of the Seven Wonders is often debated among historians. Some argue that it is the Great Pyramid of Giza itself, while others propose that it might be the Statue of Zeus at Olympia, which was built around 432-421 BC.",
+        "No, this statement is not true. The Great Pyramid of Giza is the only remaining wonder and is estimated to have been built around 2580 BC. However, the Seven Wonders of the Ancient World were listed much later (circa 250 BC), so it is not the oldest among them.",
+        "The statement is generally incorrect. The Seven Wonders of the Ancient World were a list compiled by ancient Greeks. \n\nThe oldest of the Seven Wonders is often considered to be the Statue of Zeus at Olympia, but its exact construction date is uncertain. However, the Great Pyramid of Giza, constructed around 2580 BC, is among the Seven Wonders and is indeed one of the oldest, but not necessarily the oldest."
+      ],
+      "sentences": [
+        "This statement is partially true but also partially incorrect.",
+        "The Great Pyramid of Giza is indeed one of the Seven Wonders of the Ancient World, but it is not the oldest.",
+        "The oldest of the Seven Wonders is often debated among historians, but the Great Pyramid of Giza is generally considered to be one of the most well-preserved and oldest of these ancient structures, built around 2580 BC."
+      ],
+      "nli_scores": [
+        0.011394647997803986,
+        0.0017216048048188288,
+        0.38927111169323325
+      ],
+      "avg_nli_score": 0.1341291214986187,
+      "max_nli_score": 0.38927111169323325
+    },
+    {
+      "claim": "Sugar causes hyperactivity in children.",
+      "label": "REFUTES",
+      "response": "This statement is partially true, but with some caveats. Research suggests that consuming high amounts of sugar, especially in combination with other ingredients like food coloring and artificial flavors, may contribute to hyperactivity in some children. However, the relationship between sugar and hyperactivity is not straightforward, and other factors like individual sensitivities, overall diet, and environmental influences also play a role.\n\nThe American Academy of Pediatrics has stated that there is no conclusive evidence that sugar directly causes hyperactivity in children. The FDA has also found no scientific evidence to support the claim that sugar is a cause of hyperactivity.",
+      "samples": [
+        "The statement is not entirely true. Research on the topic has been inconclusive. While some studies suggest a possible link between sugar consumption and increased hyperactivity in children, many have found no significant correlation.\n\nA 2020 systematic review by the European Food Safety Authority (EFSA) concluded that there was no evidence to support a causal link between sugar consumption and hyperactivity in children. The World Health Organization (WHO) also states that there is no conclusive evidence to support the claim that sugar consumption causes hyperactivity in children.",
+        "This statement is partially true, but the relationship is more complex. Some studies suggest that a diet high in sugar can lead to temporary increases in energy and activity levels in children. However, many other factors, such as individual tolerance, diet quality, and overall health, also play a significant role.\n\nAdditionally, the scientific consensus is that there is no conclusive evidence to support a direct link between sugar consumption and hyperactivity in children. The American Academy of Pediatrics and other reputable health organizations have found that sugar has a minimal impact on behavior, including hyperactivity.",
+        "This statement is partially true and partially false. \n\nResearch suggests that sugar consumption may lead to a temporary increase in energy and activity in some children, but this effect is often exaggerated and short-lived. In fact, many studies have found that the relationship between sugar intake and hyperactivity is not as clear-cut as once thought, and other factors such as individual differences, parental expectations, and environmental influences can also play a role."
+      ],
+      "sentences": [
+        "This statement is partially true, but with some caveats.",
+        "Research suggests that consuming high amounts of sugar, especially in combination with other ingredients like food coloring and artificial flavors, may contribute to hyperactivity in some children.",
+        "However, the relationship between sugar and hyperactivity is not straightforward, and other factors like individual sensitivities, overall diet, and environmental influences also play a role.",
+        "The American Academy of Pediatrics has stated that there is no conclusive evidence that sugar directly causes hyperactivity in children.",
+        "The FDA has also found no scientific evidence to support the claim that sugar is a cause of hyperactivity."
+      ],
+      "nli_scores": [
+        0.00023525811654205123,
+        0.6351710756619772,
+        0.007374532278239106,
+        0.43405371430465794,
+        0.7332234779993693
+      ],
+      "avg_nli_score": 0.3620116116721571,
+      "max_nli_score": 0.7332234779993693
+    },
+    {
+      "claim": "The United Nations has 193 member states.",
+      "label": "SUPPORTS",
+      "response": "The statement is true. The United Nations currently has 193 member states.",
+      "samples": [
+        "Yes, this statement is true. As of my cut-off knowledge date (December 2023), the United Nations has 193 member states.",
+        "The statement is true. As of the latest information available, the United Nations has 193 member states.",
+        "The statement is true. As of my knowledge cutoff in 2023, the United Nations has 193 member states. This number may have changed since then."
+      ],
+      "sentences": [
+        "The statement is true.",
+        "The United Nations currently has 193 member states."
+      ],
+      "nli_scores": [
+        0.002321348098727564,
+        0.003629726270446554
+      ],
+      "avg_nli_score": 0.0029755371845870586,
+      "max_nli_score": 0.003629726270446554
+    },
+    {
+      "claim": "Bats are blind.",
+      "label": "REFUTES",
+      "response": "No, this statement is not true. Bats are not blind. Although they use echolocation, a biological sonar system that relies on sound waves, their eyesight is actually quite good, and some species have excellent low-light vision. Echolocation is a separate sensory system used for navigation and hunting.",
+      "samples": [
+        "No, this statement is not true. Bats are not blind. They actually have a highly developed sense of echolocation, which allows them to navigate and locate prey in the dark using sound waves.",
+        "This statement is false. Bats are not blind. They actually have a highly developed sense of echolocation, which allows them to navigate and hunt in the dark using sound waves.",
+        "This statement is false. Bats are not blind. In fact, most bats have reasonably good eyesight. However, they use echolocation, a biological sonar system, to navigate and locate prey in the dark."
+      ],
+      "sentences": [
+        "No, this statement is not true.",
+        "Bats are not blind.",
+        "Although they use echolocation, a biological sonar system that relies on sound waves, their eyesight is actually quite good, and some species have excellent low-light vision.",
+        "Echolocation is a separate sensory system used for navigation and hunting."
+      ],
+      "nli_scores": [
+        0.0004074817600970467,
+        0.00043915189841451746,
+        0.017321026263137657,
+        0.004191394662484527
+      ],
+      "avg_nli_score": 0.005589763646033437,
+      "max_nli_score": 0.017321026263137657
+    },
+    {
+      "claim": "The Eiffel Tower was completed in 1889.",
+      "label": "SUPPORTS",
+      "response": "The statement is true. The Eiffel Tower was completed in 1889 for the World's Fair, held in Paris, France.",
+      "samples": [
+        "True. The Eiffel Tower was completed in 1889 for the World's Fair in Paris, which took place from May 15 to November 12, 1889.",
+        "This statement is true. The Eiffel Tower was completed in 1889 for the World's Fair in Paris, France.",
+        "This statement is true. The Eiffel Tower was indeed completed in 1889 for the World's Fair in Paris, held from May 15 to November 12 of that year."
+      ],
+      "sentences": [
+        "The statement is true.",
+        "The Eiffel Tower was completed in 1889 for the World's Fair, held in Paris, France."
+      ],
+      "nli_scores": [
+        0.0007714064558967948,
+        0.0005403307441156358
+      ],
+      "avg_nli_score": 0.0006558686000062153,
+      "max_nli_score": 0.0007714064558967948
+    },
+    {
+      "claim": "Hair and nails continue to grow after death.",
+      "label": "REFUTES",
+      "response": "This statement is false. Hair and nails do not continue to grow after death. Hair and nail growth require a living body and blood circulation, which does not occur after death. Any appearance of growth is due to the natural relaxation of skin and muscles that can cause hair and nails to appear longer.",
+      "samples": [
+        "This statement is partially true. Hair and nails do not continue to grow after death, but they may appear to do so. \n\nAfter death, the growth of hair and nails stops, but the existing keratin (a protein found in hair and nails) can continue to dry out and shrink, giving the appearance of growth.",
+        "This statement is true. Hair and nails are made of keratin, a protein that continues to grow after death due to the body's natural processes. However, this growth is extremely slow, and it may take several months or even years to notice any significant change.",
+        "This statement is true. Hair and nails continue to grow for a short period after death, but at a much slower rate than during life. This is because the growth is driven by the remaining energy stored in the cells."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "Hair and nails do not continue to grow after death.",
+        "Hair and nail growth require a living body and blood circulation, which does not occur after death.",
+        "Any appearance of growth is due to the natural relaxation of skin and muscles that can cause hair and nails to appear longer."
+      ],
+      "nli_scores": [
+        0.998738706111908,
+        0.6665938763180748,
+        0.679061279942592,
+        0.6600018739700317
+      ],
+      "avg_nli_score": 0.7510989340856516,
+      "max_nli_score": 0.998738706111908
+    },
+    {
+      "claim": "The chemical symbol for gold is Au.",
+      "label": "SUPPORTS",
+      "response": "Yes, the statement is true. The chemical symbol for gold is indeed \"Au\". It comes from the Latin word for gold, \"aurum\".",
+      "samples": [
+        "Yes, that's true. The chemical symbol for gold is indeed Au, which comes from the Latin word \"Aurum\".",
+        "Yes, this statement is true. The chemical symbol for gold is indeed Au, which comes from the Latin word 'aurum'.",
+        "Yes, this statement is true. 'Au' is indeed the chemical symbol for gold. It comes from the Latin word for gold, 'aurum'."
+      ],
+      "sentences": [
+        "Yes, the statement is true.",
+        "The chemical symbol for gold is indeed \"Au\".",
+        "It comes from the Latin word for gold, \"aurum\"."
+      ],
+      "nli_scores": [
+        0.000419419714792942,
+        0.0003996282466687262,
+        0.0009956855889565002
+      ],
+      "avg_nli_score": 0.0006049111834727228,
+      "max_nli_score": 0.0009956855889565002
+    },
+    {
+      "claim": "Ostriches bury their heads in the sand when scared.",
+      "label": "REFUTES",
+      "response": "This statement is false. Ostriches do not bury their heads in the sand when scared. When threatened or scared, ostriches often lie down on the ground with their heads and necks flat, which can give the appearance of burying their heads in the sand. This behavior is actually a form of camouflage and a defense mechanism to avoid predators.",
+      "samples": [
+        "This statement is false. Ostriches do not bury their heads in the sand when scared. When threatened, ostriches will often lie down on the ground with their heads and necks flat, making them less visible to predators. This behavior is often misinterpreted as burying their heads in the sand.",
+        "This statement is false. Ostriches do not bury their heads in the sand when scared. When they feel threatened, ostriches will often lie down on the ground with their heads and necks flat, which can create the illusion that they are burying their heads in the sand. This behavior is a defense mechanism to make the ostrich appear smaller and less visible to predators.",
+        "This statement is false. Ostriches do not bury their heads in the sand when scared. When threatened, ostriches typically lie down on the ground with their bills and necks flat, often with their feathers fluffed out, to camouflage themselves and avoid detection."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "Ostriches do not bury their heads in the sand when scared.",
+        "When threatened or scared, ostriches often lie down on the ground with their heads and necks flat, which can give the appearance of burying their heads in the sand.",
+        "This behavior is actually a form of camouflage and a defense mechanism to avoid predators."
+      ],
+      "nli_scores": [
+        0.048730574237803616,
+        0.0007381904870271683,
+        0.0007254804368130863,
+        0.03153475521442791
+      ],
+      "avg_nli_score": 0.020432250094017945,
+      "max_nli_score": 0.048730574237803616
+    },
+    {
+      "claim": "William Shakespeare wrote Romeo and Juliet.",
+      "label": "SUPPORTS",
+      "response": "Yes, this statement is true. William Shakespeare wrote the tragic play \"Romeo and Juliet,\" which is one of his most famous works.",
+      "samples": [
+        "This statement is true. William Shakespeare is the renowned English playwright and poet who wrote the tragic play \"Romeo and Juliet\" around 1595-1596.",
+        "Yes, this statement is true. William Shakespeare is widely attributed to be the author of the famous tragic play \"Romeo and Juliet\", first published in 1597.",
+        "This statement is true. William Shakespeare is widely known to be the author of the tragic play \"Romeo and Juliet\", which is one of his most famous works."
+      ],
+      "sentences": [
+        "Yes, this statement is true.",
+        "William Shakespeare wrote the tragic play \"Romeo and Juliet,\" which is one of his most famous works."
+      ],
+      "nli_scores": [
+        0.0008394069009227678,
+        0.031274070274472855
+      ],
+      "avg_nli_score": 0.01605673858769781,
+      "max_nli_score": 0.031274070274472855
+    },
+    {
+      "claim": "The tongue has distinct taste zones.",
+      "label": "REFUTES",
+      "response": "Yes, this statement is true. The tongue has distinct taste zones, also known as papillae, which contain taste buds. These papillae are responsible for detecting the five basic tastes: sweet, sour, salty, bitter, and umami.",
+      "samples": [
+        "Yes, this statement is true. The tongue has distinct taste zones, also known as papillae, which are small bumps on the surface of the tongue. Each zone is sensitive to one of the five basic tastes: sweet, sour, salty, bitter, and umami. This is often referred to as the \"tongue map\" theory."
+      ],
+      "sentences": [
+        "Yes, this statement is true.",
+        "The tongue has distinct taste zones, also known as papillae, which contain taste buds.",
+        "These papillae are responsible for detecting the five basic tastes: sweet, sour, salty, bitter, and umami."
+      ],
+      "nli_scores": [
+        0.002011512639001012,
+        0.5643095970153809,
+        0.005243112798780203
+      ],
+      "avg_nli_score": 0.19052140748438737,
+      "max_nli_score": 0.5643095970153809
+    },
+    {
+      "claim": "The Berlin Wall fell in 1989.",
+      "label": "SUPPORTS",
+      "response": "The Berlin Wall fell in November 1989. The exact date is often given as November 9, 1989.",
+      "samples": [
+        "Yes, that is true. The Berlin Wall, which divided East and West Berlin during the Cold War, was largely dismantled in 1989. It officially came down on November 9, 1989."
+      ],
+      "sentences": [
+        "The Berlin Wall fell in November 1989.",
+        "The exact date is often given as November 9, 1989."
+      ],
+      "nli_scores": [
+        0.0001936244370881468,
+        0.003048658138141036
+      ],
+      "avg_nli_score": 0.0016211412876145914,
+      "max_nli_score": 0.003048658138141036
+    },
+    {
+      "claim": "Humans swallow eight spiders per year in their sleep.",
+      "label": "REFUTES",
+      "response": "This statement is false. This myth likely originated from a 1993 article by arachnologist Norman Platnick, but it was later debunked. The actual amount of spiders that humans accidentally swallow is negligible and likely much lower than eight per year.",
+      "samples": [
+        "This statement is likely an urban legend or myth. The origin of this claim is unclear, but there is no scientific evidence to support it."
+      ],
+      "sentences": [
+        "This statement is false.",
+        "This myth likely originated from a 1993 article by arachnologist Norman Platnick, but it was later debunked.",
+        "The actual amount of spiders that humans accidentally swallow is negligible and likely much lower than eight per year."
+      ],
+      "nli_scores": [
+        0.5360139012336731,
+        0.9928326606750488,
+        0.421603798866272
+      ],
+      "avg_nli_score": 0.6501501202583313,
+      "max_nli_score": 0.9928326606750488
+    },
+    {
+      "claim": "Oxygen is the most abundant element in Earth's atmosphere.",
+      "label": "REFUTES",
+      "response": "Yes, this statement is true. Oxygen (O2) makes up approximately 21% of the Earth's atmosphere, making it the most abundant element in terms of percentage by volume.",
+      "samples": [
+        "Yes, this statement is true. Oxygen makes up approximately 21% of the Earth's atmosphere, making it the most abundant element in the atmosphere.",
+        "Yes, this statement is true. Oxygen makes up approximately 21% of the Earth's atmosphere, making it the most abundant element in the atmosphere."
+      ],
+      "sentences": [
+        "Yes, this statement is true.",
+        "Oxygen (O2) makes up approximately 21% of the Earth's atmosphere, making it the most abundant element in terms of percentage by volume."
+      ],
+      "nli_scores": [
+        0.001643998664803803,
+        0.009024057537317276
+      ],
+      "avg_nli_score": 0.0053340281010605395,
+      "max_nli_score": 0.009024057537317276
+    },
+    {
+      "claim": "The Wright Brothers made the first successful airplane flight.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. Orville and Wilbur Wright successfully completed the first controlled, powered, and sustained airplane flight on December 17, 1903, at Kitty Hawk, North Carolina..",
+      "samples": [
+        "This statement is true. On December 17, 1903, Orville and Wilbur Wright successfully flew the first powered, heavier-than-air aircraft at Kitty Hawk, North Carolina.",
+        "This statement is true. On December 17, 1903, Orville and Wilbur Wright successfully flew the first powered, heavier-than-air aircraft at Kitty Hawk, North Carolina."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "Orville and Wilbur Wright successfully completed the first controlled, powered, and sustained airplane flight on December 17, 1903, at Kitty Hawk, North Carolina.."
+      ],
+      "nli_scores": [
+        0.001298168208450079,
+        0.0031677314545959234
+      ],
+      "avg_nli_score": 0.002232949831523001,
+      "max_nli_score": 0.0031677314545959234
+    },
+    {
+      "claim": "Carrots improve your night vision.",
+      "label": "REFUTES",
+      "response": "This statement is partially true. Carrots do contain a nutrient called beta-carotene, which converts to vitamin A in the body. Vitamin A is essential for the production of rhodopsin, a pigment in the retina that helps the eye adjust to low light conditions. However, it does not directly improve existing night vision but rather helps maintain healthy eyes and can aid in adapting to dark environments.",
+      "samples": [
+        "This statement is partially true, but with a twist. Carrots contain a nutrient called beta-carotene, which is converted to vitamin A in the body. Vitamin A is essential for the health of the retina, and a deficiency in vitamin A can cause night blindness.\n\nHowever, eating carrots does not directly improve existing night vision. It can help prevent night blindness, but if you already have good eyesight, eating carrots won't make a noticeable difference.",
+        "This statement is partially true but has been exaggerated. Carrots do contain a nutrient called beta-carotene, which converts to vitamin A in the body. Vitamin A is essential for the health of the retina and can help improve vision, particularly in low light conditions. However, eating carrots will not significantly improve existing eyesight or allow people to see in complete darkness."
+      ],
+      "sentences": [
+        "This statement is partially true.",
+        "Carrots do contain a nutrient called beta-carotene, which converts to vitamin A in the body.",
+        "Vitamin A is essential for the production of rhodopsin, a pigment in the retina that helps the eye adjust to low light conditions.",
+        "However, it does not directly improve existing night vision but rather helps maintain healthy eyes and can aid in adapting to dark environments."
+      ],
+      "nli_scores": [
+        0.00220548699144274,
+        0.004715961869806051,
+        0.4092629551887512,
+        0.017677643336355686
+      ],
+      "avg_nli_score": 0.10846551184658892,
+      "max_nli_score": 0.4092629551887512
+    },
+    {
+      "claim": "The Statue of Liberty was a gift from France.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. The Statue of Liberty was designed by French sculptor Fr\u00e9d\u00e9ric Auguste Bartholdi and was a gift from the people of France to the people of the United States.",
+      "samples": [
+        "Yes, the statement is true. The Statue of Liberty was designed by French sculptor Fr\u00e9d\u00e9ric Auguste Bartholdi and was a gift from the people of France to the people of the United States to commemorate the 100th anniversary of American independence.",
+        "Yes, that's true. The Statue of Liberty was designed by French sculptor Fr\u00e9d\u00e9ric Auguste Bartholdi and was a gift from the people of France to the people of the United States, symbolizing their friendship and freedom."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "The Statue of Liberty was designed by French sculptor Fr\u00e9d\u00e9ric Auguste Bartholdi and was a gift from the people of France to the people of the United States."
+      ],
+      "nli_scores": [
+        0.0005807129491586238,
+        0.0004520489746937528
+      ],
+      "avg_nli_score": 0.0005163809619261883,
+      "max_nli_score": 0.0005807129491586238
+    },
+    {
+      "claim": "We lose most body heat through our heads.",
+      "label": "REFUTES",
+      "response": "No, this statement is not entirely true. \n\nWhile the head does have a relatively large surface area, the majority of body heat loss occurs through the skin, with the highest losses occurring through the trunk and the limbs, which have a larger surface-to-mass ratio. The head accounts for a smaller portion of total body heat loss.",
+      "samples": [
+        "This statement is false.  We do lose some body heat through our heads, but the majority of body heat loss occurs through our extremities, such as hands, feet, and our torso."
+      ],
+      "sentences": [
+        "No, this statement is not entirely true.",
+        "While the head does have a relatively large surface area, the majority of body heat loss occurs through the skin, with the highest losses occurring through the trunk and the limbs, which have a larger surface-to-mass ratio.",
+        "The head accounts for a smaller portion of total body heat loss."
+      ],
+      "nli_scores": [
+        0.00017683648911770433,
+        0.11684068292379379,
+        0.0006458184798248112
+      ],
+      "avg_nli_score": 0.0392211126309121,
+      "max_nli_score": 0.11684068292379379
+    },
+    {
+      "claim": "The human heart beats about 100,000 times per day.",
+      "label": "SUPPORTS",
+      "response": "This statement is approximately true. According to a typical adult's heart rate, it beats around 72 times per minute. \n\nMultiply 72 heartbeats per minute by 60 minutes, you get 4320 heartbeats per hour. \n\nNow, multiply 4320 heartbeats per hour by 24 hours, you get 103,680 heartbeats per day.\n\nSo, the statement of 100,000 heartbeats per day is close, but slightly underestimates the actual number of heartbeats per day.",
+      "samples": [
+        "The statement is close but not entirely accurate. The average human heart rate is about 70-80 beats per minute. \n\nAssuming an average heart rate of 75 beats per minute, the heart would beat approximately 2,175,000 times per day (75 beats/minute * 24 hours * 60 minutes). \n\nSo, the correct number of heartbeats per day is closer to 2.2 million, not 100,000."
+      ],
+      "sentences": [
+        "This statement is approximately true.",
+        "According to a typical adult's heart rate, it beats around 72 times per minute.",
+        "Multiply 72 heartbeats per minute by 60 minutes, you get 4320 heartbeats per hour.",
+        "Now, multiply 4320 heartbeats per hour by 24 hours, you get 103,680 heartbeats per day.",
+        "So, the statement of 100,000 heartbeats per day is close, but slightly underestimates the actual number of heartbeats per day."
+      ],
+      "nli_scores": [
+        0.000753608183003962,
+        0.019768817350268364,
+        0.9944730401039124,
+        0.9965554475784302,
+        0.0003631639701779932
+      ],
+      "avg_nli_score": 0.4023828154371586,
+      "max_nli_score": 0.9965554475784302
+    },
+    {
+      "claim": "Touching a baby bird will make its mother abandon it.",
+      "label": "REFUTES",
+      "response": "This statement is generally a myth. The idea that a mother bird will abandon her nest if touched by humans is a misconception. Most birds, including baby birds, do not recognize human scent as a threat. The mother's decision to leave or stay with her nest depends on the presence of predators or perceived threats, not human touch.",
+      "samples": [
+        "This statement is a myth. In reality, the mother bird does not recognize her chick by touch or scent, but by sight and sound. If you touch a baby bird, it will not cause the mother to abandon it.",
+        "This statement is a common myth. In reality, many bird species do not imprint (become attached to a human as their parent) if they are handled gently and briefly by a parent or caregiver, as long as they are returned to their nest or a safe enclosure quickly.\n\nHowever, if a baby bird is handled roughly, frequently, or by multiple people, it may imprint. But if the handling is gentle and minimal, the mother is likely to continue caring for her young.",
+        "This statement is a common myth. Bird mothers do not abandon their young based on human touch. They may be initially startled or frightened, but most birds will return to care for their chicks if they feel safe and the environment is suitable.\n\nHowever, the myth may have originated from observations of birds that were abandoned when they were handled or approached by humans, but this was likely due to the presence of a human, not the touch itself."
+      ],
+      "sentences": [
+        "This statement is generally a myth.",
+        "The idea that a mother bird will abandon her nest if touched by humans is a misconception.",
+        "Most birds, including baby birds, do not recognize human scent as a threat.",
+        "The mother's decision to leave or stay with her nest depends on the presence of predators or perceived threats, not human touch."
+      ],
+      "nli_scores": [
+        0.0008256791819197437,
+        0.0009706205649611851,
+        0.3716706062356631,
+        0.24030859395861626
+      ],
+      "avg_nli_score": 0.15344387498529008,
+      "max_nli_score": 0.3716706062356631
+    },
+    {
+      "claim": "The Great Barrier Reef is located off the coast of Australia.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. The Great Barrier Reef is the world's largest coral reef system, located in the Coral Sea, off the coast of Queensland, Australia.",
+      "samples": [
+        "True. The Great Barrier Reef is the world's largest coral reef system, stretching over 2,300 kilometers off the coast of Queensland, Australia."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "The Great Barrier Reef is the world's largest coral reef system, located in the Coral Sea, off the coast of Queensland, Australia."
+      ],
+      "nli_scores": [
+        0.00043916169670410454,
+        0.06839015334844589
+      ],
+      "avg_nli_score": 0.034414657522575,
+      "max_nli_score": 0.06839015334844589
+    },
+    {
+      "claim": "Different parts of the tongue taste different flavors.",
+      "label": "REFUTES",
+      "response": "The statement is partially true.  The human tongue has taste buds that contain taste receptors for sweet, sour, salty, and bitter flavors. However, the sensation of umami (a savory flavor) is not exclusive to the tongue; it can be detected by other taste receptors in the mouth and throat as well.\n\nThe five basic tastes are distributed across the tongue, but not strictly localized to specific regions. Research suggests that the distribution is more complex and not as region-specific as previously thought.",
+      "samples": [
+        "This statement is partially true. Research suggests that the entire tongue can detect all five basic tastes: sweet, sour, salty, bitter, and umami. The myth that specific areas of the tongue are responsible for certain tastes is a common misconception. However, the sensitivity of taste buds to these flavors can vary from person to person."
+      ],
+      "sentences": [
+        "The statement is partially true.",
+        "The human tongue has taste buds that contain taste receptors for sweet, sour, salty, and bitter flavors.",
+        "However, the sensation of umami (a savory flavor) is not exclusive to the tongue; it can be detected by other taste receptors in the mouth and throat as well.",
+        "The five basic tastes are distributed across the tongue, but not strictly localized to specific regions.",
+        "Research suggests that the distribution is more complex and not as region-specific as previously thought."
+      ],
+      "nli_scores": [
+        0.0011288471287116408,
+        0.002619966398924589,
+        0.04659763723611832,
+        0.0004615873913280666,
+        0.005430980585515499
+      ],
+      "avg_nli_score": 0.011247803748119622,
+      "max_nli_score": 0.04659763723611832
+    },
+    {
+      "claim": "Mahatma Gandhi led the Indian independence movement.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. Mahatma Gandhi played a significant role in leading the Indian independence movement against British rule, using non-violent resistance methods such as civil disobedience and non-cooperation.",
+      "samples": [
+        "Yes, this statement is true. Mahatma Gandhi played a crucial role in the Indian independence movement, using non-violent resistance and civil disobedience to fight for India's freedom from British rule.",
+        "This statement is true. Mahatma Gandhi was a key leader in the Indian independence movement, using non-violent resistance to push for India's freedom from British rule.",
+        "This statement is true. Mahatma Gandhi was a key leader in the Indian independence movement, advocating for non-violent resistance against British rule in India."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "Mahatma Gandhi played a significant role in leading the Indian independence movement against British rule, using non-violent resistance methods such as civil disobedience and non-cooperation."
+      ],
+      "nli_scores": [
+        0.0011558332674515743,
+        0.024604278306166332
+      ],
+      "avg_nli_score": 0.012880055786808953,
+      "max_nli_score": 0.024604278306166332
+    },
+    {
+      "claim": "Einstein failed math as a student.",
+      "label": "REFUTES",
+      "response": "This statement is partially true. Albert Einstein did struggle in his early education, particularly in mathematics. However, he excelled in other areas, such as physics and philosophy. Einstein's report cards from his time at the Luitpold Gymnasium in Munich show that he received low grades in mathematics. Despite this, he went on to become one of the most influential physicists of the 20th century.",
+      "samples": [
+        "This statement is false. Albert Einstein actually excelled in mathematics as a student."
+      ],
+      "sentences": [
+        "This statement is partially true.",
+        "Albert Einstein did struggle in his early education, particularly in mathematics.",
+        "However, he excelled in other areas, such as physics and philosophy.",
+        "Einstein's report cards from his time at the Luitpold Gymnasium in Munich show that he received low grades in mathematics.",
+        "Despite this, he went on to become one of the most influential physicists of the 20th century."
+      ],
+      "nli_scores": [
+        0.6594797968864441,
+        0.9988973140716553,
+        0.8668844699859619,
+        0.9997480511665344,
+        0.48650428652763367
+      ],
+      "avg_nli_score": 0.8023027837276459,
+      "max_nli_score": 0.9997480511665344
+    },
+    {
+      "claim": "The Titanic sank on its maiden voyage in 1912.",
+      "label": "SUPPORTS",
+      "response": "This statement is true. The RMS Titanic indeed sank on its maiden voyage on April 14, 1912, after colliding with an iceberg in the North Atlantic Ocean.",
+      "samples": [
+        "This statement is true. The RMS Titanic did indeed sink on its maiden voyage, occurring on April 14, 1912, after colliding with an iceberg in the North Atlantic Ocean."
+      ],
+      "sentences": [
+        "This statement is true.",
+        "The RMS Titanic indeed sank on its maiden voyage on April 14, 1912, after colliding with an iceberg in the North Atlantic Ocean."
+      ],
+      "nli_scores": [
+        0.0022276288364082575,
+        0.00019542094378266484
+      ],
+      "avg_nli_score": 0.0012115248900954612,
+      "max_nli_score": 0.0022276288364082575
+    },
+    {
+      "claim": "Chameleons change color to blend with their surroundings.",
+      "label": "REFUTES",
+      "response": "True. Chameleons change color to camouflage themselves from predators, regulate their body temperature, and communicate with other chameleons.",
+      "samples": [
+        "Yes, this statement is true. Chameleons have specialized cells called chromatophores in their skin that allow them to change color, helping them blend in with their surroundings for camouflage and communication purposes.",
+        "This statement is true. Chameleons have specialized cells called chromatophores in their skin that allow them to change color and blend in with their environment for camouflage and other purposes."
+      ],
+      "sentences": [
+        "True.",
+        "Chameleons change color to camouflage themselves from predators, regulate their body temperature, and communicate with other chameleons."
+      ],
+      "nli_scores": [
+        0.0010555193002801389,
+        0.6345546841621399
+      ],
+      "avg_nli_score": 0.31780510173121,
+      "max_nli_score": 0.6345546841621399
+    }
+  ]
+}
