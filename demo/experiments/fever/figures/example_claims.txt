@@ -1,0 +1,27 @@
+================================================================================
+HIGH SCORE EXAMPLES (Likely Hallucinations / Non-Factual)
+================================================================================
+
+1. Score: 0.978 | Label: REFUTES
+   Claim: Bananas grow on trees.
+
+2. Score: 0.961 | Label: SUPPORTS
+   Claim: Pluto is classified as a dwarf planet.
+
+3. Score: 0.902 | Label: REFUTES
+   Claim: Napoleon Bonaparte was unusually short.
+
+
+================================================================================
+LOW SCORE EXAMPLES (Likely Factual / Consistent)
+================================================================================
+
+1. Score: 0.348 | Label: SUPPORTS
+   Claim: Mount Everest is the tallest mountain on Earth.
+
+2. Score: 0.344 | Label: SUPPORTS
+   Claim: Paris is the capital of France.
+
+3. Score: 0.190 | Label: REFUTES
+   Claim: Bulls are angered by the color red.
+
