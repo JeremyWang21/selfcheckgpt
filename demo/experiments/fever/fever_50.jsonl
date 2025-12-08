@@ -1,0 +1,51 @@
+{"claim": "Paris is the capital of France.", "label": "SUPPORTS"}
+{"claim": "The Earth is flat.", "label": "REFUTES"}
+{"claim": "Water boils at 100 degrees Celsius at sea level.", "label": "SUPPORTS"}
+{"claim": "The Great Wall of China is visible from space with the naked eye.", "label": "REFUTES"}
+{"claim": "Albert Einstein developed the theory of relativity.", "label": "SUPPORTS"}
+{"claim": "Humans use only 10 percent of their brain.", "label": "REFUTES"}
+{"claim": "Mount Everest is the tallest mountain on Earth.", "label": "SUPPORTS"}
+{"claim": "Goldfish have a three-second memory.", "label": "REFUTES"}
+{"claim": "The Amazon rainforest produces 20 percent of the world's oxygen.", "label": "REFUTES"}
+{"claim": "DNA was discovered by Watson and Crick.", "label": "SUPPORTS"}
+{"claim": "Lightning never strikes the same place twice.", "label": "REFUTES"}
+{"claim": "The speed of light is approximately 300,000 kilometers per second.", "label": "SUPPORTS"}
+{"claim": "Bulls are angered by the color red.", "label": "REFUTES"}
+{"claim": "Pluto is classified as a dwarf planet.", "label": "SUPPORTS"}
+{"claim": "Bananas grow on trees.", "label": "REFUTES"}
+{"claim": "The human body has 206 bones.", "label": "SUPPORTS"}
+{"claim": "Napoleon Bonaparte was unusually short.", "label": "REFUTES"}
+{"claim": "The Pacific Ocean is the largest ocean on Earth.", "label": "SUPPORTS"}
+{"claim": "Sharks can smell a drop of blood from a mile away.", "label": "REFUTES"}
+{"claim": "The Mona Lisa was painted by Leonardo da Vinci.", "label": "SUPPORTS"}
+{"claim": "The Moon is made of cheese.", "label": "REFUTES"}
+{"claim": "Tokyo is the most populous city in the world.", "label": "SUPPORTS"}
+{"claim": "Vikings wore horned helmets in battle.", "label": "REFUTES"}
+{"claim": "The Amazon River is the longest river in the world.", "label": "SUPPORTS"}
+{"claim": "Cracking your knuckles causes arthritis.", "label": "REFUTES"}
+{"claim": "The Great Pyramid of Giza is the oldest of the Seven Wonders.", "label": "SUPPORTS"}
+{"claim": "Sugar causes hyperactivity in children.", "label": "REFUTES"}
+{"claim": "The United Nations has 193 member states.", "label": "SUPPORTS"}
+{"claim": "Bats are blind.", "label": "REFUTES"}
+{"claim": "The Eiffel Tower was completed in 1889.", "label": "SUPPORTS"}
+{"claim": "Hair and nails continue to grow after death.", "label": "REFUTES"}
+{"claim": "The chemical symbol for gold is Au.", "label": "SUPPORTS"}
+{"claim": "Ostriches bury their heads in the sand when scared.", "label": "REFUTES"}
+{"claim": "William Shakespeare wrote Romeo and Juliet.", "label": "SUPPORTS"}
+{"claim": "The tongue has distinct taste zones.", "label": "REFUTES"}
+{"claim": "The Berlin Wall fell in 1989.", "label": "SUPPORTS"}
+{"claim": "Humans swallow eight spiders per year in their sleep.", "label": "REFUTES"}
+{"claim": "Oxygen is the most abundant element in Earth's atmosphere.", "label": "REFUTES"}
+{"claim": "The Wright Brothers made the first successful airplane flight.", "label": "SUPPORTS"}
+{"claim": "Carrots improve your night vision.", "label": "REFUTES"}
+{"claim": "The Statue of Liberty was a gift from France.", "label": "SUPPORTS"}
+{"claim": "We lose most body heat through our heads.", "label": "REFUTES"}
+{"claim": "The human heart beats about 100,000 times per day.", "label": "SUPPORTS"}
+{"claim": "Touching a baby bird will make its mother abandon it.", "label": "REFUTES"}
+{"claim": "The Great Barrier Reef is located off the coast of Australia.", "label": "SUPPORTS"}
+{"claim": "Different parts of the tongue taste different flavors.", "label": "REFUTES"}
+{"claim": "Mahatma Gandhi led the Indian independence movement.", "label": "SUPPORTS"}
+{"claim": "Einstein failed math as a student.", "label": "REFUTES"}
+{"claim": "The Titanic sank on its maiden voyage in 1912.", "label": "SUPPORTS"}
+{"claim": "Chameleons change color to blend with their surroundings.", "label": "REFUTES"}
+
