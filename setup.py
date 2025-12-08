@@ -13,6 +13,7 @@ REQUIREMENTS = [
     "nltk",
     "openai",
     "groq",
+    "python-dotenv",
 ]
 
 # some more details
