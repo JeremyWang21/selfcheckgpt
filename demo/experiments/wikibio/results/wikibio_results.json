@@ -1,0 +1,87 @@
+{
+  "dataset": "wiki_bio_gpt3_hallucination",
+  "num_passages": 50,
+  "timestamp": "2025-12-08T17:53:28.759608",
+  "config": {
+    "limit": 50,
+    "scorers": [
+      "nli",
+      "ngram",
+      "bertscore"
+    ],
+    "device": "mps",
+    "ngram_n": 1
+  },
+  "scorers": {
+    "nli": {
+      "sentence_level": {
+        "nonfact_auc_pr": 0.9225099874301916,
+        "factual_auc_pr": 0.592364668215733,
+        "pearson": 0.4998022627807553,
+        "spearman": 0.4646621227595286,
+        "optimal_threshold": 0.3820566792157479,
+        "best_f1": 0.8827785817158296,
+        "accuracy_at_optimal": 0.8085106382978723
+      },
+      "passage_level": {
+        "nonfact_auc_pr": 0.9991315675206253,
+        "factual_auc_pr": 0.8055555555555556,
+        "pearson": 0.54059885854384,
+        "spearman": 0.3997500347077727,
+        "optimal_threshold": 0.4635242290862759,
+        "best_f1": 0.9892473117779628,
+        "accuracy_at_optimal": 0.98
+      },
+      "num_sentences": 423,
+      "num_passages": 50,
+      "runtime_seconds": 842.3819770812988
+    },
+    "ngram": {
+      "sentence_level": {
+        "nonfact_auc_pr": 0.8301939923175511,
+        "factual_auc_pr": 0.3800806454717924,
+        "pearson": 0.19836902742733756,
+        "spearman": 0.18801201122820263,
+        "optimal_threshold": 0.0826777543187685,
+        "best_f1": 0.8653061223998149,
+        "accuracy_at_optimal": 0.7659574468085106
+      },
+      "passage_level": {
+        "nonfact_auc_pr": 0.980779607543979,
+        "factual_auc_pr": 0.19722222222222222,
+        "pearson": 0.19006451944897493,
+        "spearman": 0.20133395908639648,
+        "optimal_threshold": 0.0,
+        "best_f1": 0.9690721648985015,
+        "accuracy_at_optimal": 0.94
+      },
+      "num_sentences": 423,
+      "num_passages": 50,
+      "runtime_seconds": 96.16580009460449
+    },
+    "bertscore": {
+      "sentence_level": {
+        "nonfact_auc_pr": 0.8256460063726422,
+        "factual_auc_pr": 0.3575544984348807,
+        "pearson": 0.17571459505457585,
+        "spearman": 0.14159541824504032,
+        "optimal_threshold": 0.17753421962261196,
+        "best_f1": 0.8668478260378073,
+        "accuracy_at_optimal": 0.7683215130023641
+      },
+      "passage_level": {
+        "nonfact_auc_pr": 0.9991040440621699,
+        "factual_auc_pr": 0.8666666666666667,
+        "pearson": 0.5134986315329912,
+        "spearman": 0.3997500347077727,
+        "optimal_threshold": 0.5048557200469076,
+        "best_f1": 0.9894736841605319,
+        "accuracy_at_optimal": 0.98
+      },
+      "num_sentences": 423,
+      "num_passages": 50,
+      "runtime_seconds": 2157.2487387657166
+    }
+  },
+  "total_runtime_seconds": 3095.796543121338
+}
