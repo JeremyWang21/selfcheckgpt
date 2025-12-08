@@ -1,9 +1,9 @@
 import json
 import random
 
-OUT = "fever_dev_200.jsonl"  
+OUT = "fever_dev_20.jsonl"  
 
-NUM_SAMPLES = 200 # Run time considerations
+NUM_SAMPLES = 20 # Run time considerations
 
 # Creates a random sample of 200 fever claims for use
 def main():
