@@ -425,6 +425,39 @@ Results on the `wiki_bio_gpt3_hallucination` dataset:
 
 ---
 
+## Benchmarks (New)
+
+We ran fresh evaluations on WikiBio (50 passages) and FEVER (50 claims) using the new scripts.
+
+### How to Reproduce
+- WikiBio (all scorers):  
+  `python demo/experiments/wikibio/run_wikibio_eval.py --limit 50 --scorers nli ngram bertscore --device mps`
+- FEVER (Groq + NLI):  
+  `cd demo/experiments/fever && export GROQ_API_KEY=... && python run_fever_eval.py --input fever_50.jsonl --num-samples 4 --model llama-3.1-8b-instant --device mps`
+- Results summary:  
+  See `demo/results_summary.md`
+
+### Key Results
+
+**WikiBio (50 passages)** — file: `demo/experiments/wikibio/results/wikibio_results.json`
+
+| Method | NonFact AUC-PR | Factual AUC-PR | Pearson | Paper NonFact | Paper Factual | Paper Pearson |
+|--------|----------------|----------------|---------|---------------|---------------|---------------|
+| nli | 92.25 | 59.24 | 49.98 | 92.50 | 66.08 | 74.14 |
+| ngram | 83.02 | 38.01 | 19.84 | - | - | - |
+| bertscore | 82.56 | 35.76 | 17.57 | 81.96 | 44.23 | 58.18 |
+
+**FEVER (50 claims, NLI via Groq)** — file: `demo/experiments/fever/results/fever_eval_results.json`
+- SUPPORTS mean NLI: 0.1059 (std 0.1787, n=24)  
+- REFUTES mean NLI: 0.1831 (std 0.2282, n=26)  
+- Separation AUC (SUPPORTS vs REFUTES): 0.6795  
+- Cohen’s d: 0.3770  
+- Interpretation: SUPPORTS < REFUTES on average → expected behavior
+
+See `demo/results_summary.md` for consolidated tables and reproducibility notes.
+
+---
+
 ## Project Structure
 
 ```
