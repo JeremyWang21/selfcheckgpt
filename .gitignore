@@ -3,3 +3,4 @@ selfcheckgpt.egg-info
 examples/
 dist/
 *.ipynb_checkpoints/
+.env

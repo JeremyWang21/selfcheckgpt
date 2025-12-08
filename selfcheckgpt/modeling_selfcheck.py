@@ -3,7 +3,7 @@ import bert_score
 import numpy as np
 import torch
 from tqdm import tqdm
-from typing import Dict, List, Set, Tuple, Union
+from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from transformers import logging
 logging.set_verbosity_error()
 
@@ -13,6 +13,11 @@ from transformers import DebertaV2ForSequenceClassification, DebertaV2Tokenizer
 from selfcheckgpt.utils import MQAGConfig, expand_list1, expand_list2, NLIConfig, LLMPromptConfig
 from selfcheckgpt.modeling_mqag import question_generation_sentence_level, answering
 from selfcheckgpt.modeling_ngram import UnigramModel, NgramModel
+from selfcheckgpt.prompt_utils import (
+    PromptCacheConfig,
+    load_cached_json,
+    store_cached_json,
+)
 
 # ---------------------------------------------------------------------------------------- #
 # Functions for counting
@@ -385,9 +390,11 @@ class SelfCheckLLMPrompt:
     def __init__(
         self,
         model: str = None,
-        device = None
+        device = None,
+        **prompt_kwargs,
     ):
         model = model if model is not None else LLMPromptConfig.model
+        self.model_name = model
         self.tokenizer = AutoTokenizer.from_pretrained(model)
         self.model = AutoModelForCausalLM.from_pretrained(model, torch_dtype="auto")
         self.model.eval()
@@ -398,6 +405,11 @@ class SelfCheckLLMPrompt:
         self.prompt_template = "Context: {context}\n\nSentence: {sentence}\n\nIs the sentence supported by the context above? Answer Yes or No.\n\nAnswer: "
         self.text_mapping = {'yes': 0.0, 'no': 1.0, 'n/a': 0.5}
         self.not_defined_text = set()
+        self.cache_config = PromptCacheConfig.from_kwargs(
+            cache_dir=prompt_kwargs.get("cache_dir"),
+            use_cache=prompt_kwargs.get("use_cache", False),
+        )
+        self.prompt_batch_size = prompt_kwargs.get("prompt_batch_size")
         print(f"SelfCheck-LLMPrompt ({model}) initialized to device {device}")
 
     def set_prompt_template(self, prompt_template: str):
@@ -409,6 +421,7 @@ class SelfCheckLLMPrompt:
         sentences: List[str],
         sampled_passages: List[str],
         verbose: bool = False,
+        **prompt_kwargs,
     ):
         """
         This function takes sentences (to be evaluated) with sampled passages (evidence), and return sent-level scores
@@ -421,27 +434,27 @@ class SelfCheckLLMPrompt:
         num_samples = len(sampled_passages)
         scores = np.zeros((num_sentences, num_samples))
         disable = not verbose
+        cache_config = self.cache_config.override(
+            cache_dir=prompt_kwargs.get("cache_dir"),
+            use_cache=prompt_kwargs.get("use_cache"),
+        )
+        batch_size = prompt_kwargs.get("prompt_batch_size", self.prompt_batch_size)
+        if batch_size is not None and batch_size < 1:
+            batch_size = None
         for sent_i in tqdm(range(num_sentences), disable=disable):
             sentence = sentences[sent_i]
+            pending_jobs = []
             for sample_i, sample in enumerate(sampled_passages):
-                
-                # this seems to improve performance when using the simple prompt template
-                sample = sample.replace("\n", " ") 
 
-                prompt = self.prompt_template.format(context=sample, sentence=sentence)
-                inputs = self.tokenizer(prompt, return_tensors="pt").to(self.device)
-                generate_ids = self.model.generate(
-                    inputs.input_ids,
-                    max_new_tokens=5,
-                    do_sample=False, # hf's default for Llama2 is True
-                )
-                output_text = self.tokenizer.batch_decode(
-                    generate_ids, skip_special_tokens=True, 
-                    clean_up_tokenization_spaces=False
-                )[0]
-                generate_text = output_text.replace(prompt, "")
-                score_ = self.text_postprocessing(generate_text)
-                scores[sent_i, sample_i] = score_
+                sample_clean = sample.replace("\n", " ")
+                prompt = self.prompt_template.format(context=sample_clean, sentence=sentence)
+                payload = self._cache_payload(prompt, sentence, sample_clean, sent_i, sample_i)
+                cached_entry = load_cached_json(cache_config, payload)
+                if cached_entry is not None and "score" in cached_entry:
+                    scores[sent_i, sample_i] = cached_entry["score"]
+                    continue
+                pending_jobs.append((sent_i, sample_i, prompt, payload))
+            self._run_local_prompt_batch(pending_jobs, cache_config, batch_size, scores)
         scores_per_sentence = scores.mean(axis=-1)
         return scores_per_sentence
 
@@ -468,3 +481,70 @@ class SelfCheckLLMPrompt:
                 self.not_defined_text.add(text)
             text = 'n/a'
         return self.text_mapping[text]
+
+    def _cache_payload(
+        self,
+        prompt: str,
+        sentence: str,
+        sample: str,
+        sentence_idx: int,
+        sample_idx: int,
+    ) -> Dict[str, Any]:
+        return {
+            "scorer": self.__class__.__name__,
+            "client_type": "open_source",
+            "model": self.model_name,
+            "sentence_idx": sentence_idx,
+            "sample_idx": sample_idx,
+            "prompt": prompt,
+            "sentence": sentence,
+            "sample": sample,
+        }
+
+    def _run_local_prompt_batch(
+        self,
+        jobs: List[Tuple[int, int, str, Dict[str, Any]]],
+        cache_config: PromptCacheConfig,
+        batch_size: Optional[int],
+        scores: np.ndarray,
+    ) -> None:
+        if not jobs:
+            return
+        effective_batch = batch_size if batch_size and batch_size > 1 else 1
+        for start in range(0, len(jobs), effective_batch):
+            chunk = jobs[start:start + effective_batch]
+            prompts = [job[2] for job in chunk]
+            inputs = self.tokenizer(
+                prompts,
+                return_tensors="pt",
+                padding=True,
+            ).to(self.device)
+            generate_ids = self.model.generate(
+                **inputs,
+                max_new_tokens=5,
+                do_sample=False,
+            )
+            output_texts = self.tokenizer.batch_decode(
+                generate_ids,
+                skip_special_tokens=True,
+                clean_up_tokenization_spaces=False,
+            )
+            for job, output_text in zip(chunk, output_texts):
+                self._finalize_prompt_job(job, output_text, cache_config, scores)
+
+    def _finalize_prompt_job(
+        self,
+        job: Tuple[int, int, str, Dict[str, Any]],
+        output_text: str,
+        cache_config: PromptCacheConfig,
+        scores: np.ndarray,
+    ) -> None:
+        sent_i, sample_i, prompt, payload = job
+        generate_text = output_text.replace(prompt, "")
+        score_ = self.text_postprocessing(generate_text)
+        scores[sent_i, sample_i] = score_
+        store_cached_json(
+            cache_config,
+            payload,
+            {"score": float(score_), "raw": generate_text},
+        )
