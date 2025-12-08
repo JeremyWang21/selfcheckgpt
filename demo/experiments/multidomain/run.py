@@ -98,12 +98,17 @@ class NgramScorer(BaseScorer):
         sentences = _split_sentences(candidate)
         if not sentences:
             return 1.0
-        scores = self.impl.predict(
+        result = self.impl.predict(
             sentences=sentences,
             passage=example["reference"],
             sampled_passages=list(sampled_passages),
         )
-        return _mean(scores)
+        # SelfCheckNgram returns a dict with 'sent_level' and 'doc_level' keys
+        # Use the average of sentence-level avg_neg_logprob scores
+        sent_scores = result.get("sent_level", {}).get("avg_neg_logprob", [])
+        if not sent_scores:
+            return 1.0
+        return _mean(sent_scores)
 
 
 class NLIScorer(BaseScorer):
