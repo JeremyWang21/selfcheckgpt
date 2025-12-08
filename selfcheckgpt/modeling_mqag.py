@@ -60,7 +60,7 @@ def question_generation_sentence_level(
         )
         distractors = g2_tokenizer.decode(outputs[0], skip_special_tokens=False)
         distractors = distractors.replace(g2_tokenizer.pad_token, "").replace(g2_tokenizer.eos_token, "")
-        distractors = re.sub("<extra\S+>", g2_tokenizer.sep_token, distractors)
+        distractors = re.sub(r"<extra\S+>", g2_tokenizer.sep_token, distractors)
         distractors = [y.strip() for y in distractors.split(g2_tokenizer.sep_token)]
         options = [answer] + distractors
 
@@ -127,7 +127,7 @@ def question_generation_sampling(
         )
         distractors = g2_tokenizer.decode(outputs[0], skip_special_tokens=False)
         distractors = distractors.replace(g2_tokenizer.pad_token, "").replace(g2_tokenizer.eos_token, "")
-        distractors = re.sub("<extra\S+>", g2_tokenizer.sep_token, distractors)
+        distractors = re.sub(r"<extra\S+>", g2_tokenizer.sep_token, distractors)
         distractors = [y.strip() for y in distractors.split(g2_tokenizer.sep_token)]
         options = [answer] + distractors
 
@@ -191,7 +191,7 @@ def question_generation_beamsearch(
     )
     distractors = g2_tokenizer.decode(outputs[0], skip_special_tokens=False)
     distractors = distractors.replace(g2_tokenizer.pad_token, "").replace(g2_tokenizer.eos_token, "")
-    distractors = re.sub("<extra\S+>", g2_tokenizer.sep_token, distractors)
+    distractors = re.sub(r"<extra\S+>", g2_tokenizer.sep_token, distractors)
     distractors = [y.strip() for y in distractors.split(g2_tokenizer.sep_token)]
     options = [answer] + distractors
 
