@@ -1,18 +1,8 @@
-SelfCheckGPT
-=====================================================
-[![arxiv](https://img.shields.io/badge/arXiv-2303.08896-b31b1b.svg)](https://arxiv.org/abs/2303.08896)
-[![PyPI version selfcheckgpt](https://badge.fury.io/py/selfcheckgpt.svg?kill_cache=1)](https://pypi.python.org/pypi/selfcheckgpt/)
-[![Downloads](https://pepy.tech/badge/selfcheckgpt)](https://pepy.tech/project/selfcheckgpt)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+📌 Project Extensions by Jeremy & Jayden
 
-A zero-resource, black-box framework for detecting hallucinations in LLM outputs.
+As part of our NLP project, we extend the original SelfCheckGPT framework with new experiments, datasets, analysis and features.
 
-**How it works:** Generate multiple passages from the same LLM, then check for consistency. Sentences that contradict most samples are flagged as potentially hallucinated.
-
-- Project page for our paper "[SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models](https://arxiv.org/abs/2303.08896)"
-- [Oct 2023] The paper is accepted and to appear at EMNLP 2023 [\[Poster\]](https://drive.google.com/file/d/1EzQ3MdmrF0gM-83UV2OQ6_QR1RuvhJ9h/view?usp=drive_link)
-
-![](demo/selfcheck_qa_prompt.png)
+All other sections are part of the original worked that we forked the repository from to work on. We do not claim the work. Please refer to the original reposity for more information: https://github.com/potsawee/selfcheckgpt
 
 ---
 
@@ -33,7 +23,6 @@ A zero-resource, black-box framework for detecting hallucinations in LLM outputs
   - [Multi-Domain Evaluation](#multi-domain-evaluation)
   - [Fine-Grained Demo](#fine-grained-demo)
 - [Running Tests](#running-tests)
-- [Dataset](#dataset)
 - [Citation](#citation)
 
 ---
@@ -46,6 +35,7 @@ python -m spacy download en_core_web_sm
 ```
 
 **Optional:** For FEVER experiments with Groq API:
+
 ```bash
 pip install python-dotenv
 ```
@@ -205,6 +195,7 @@ print(result["chunk_scores_by_sentence"])  # Scores per clause
 ```
 
 **Example output:**
+
 ```
 === Fine-grained scoring ===
 Sentence 1: Saturn is the sixth planet from the sun, and it is known for its rings.
@@ -285,8 +276,14 @@ data.configure_loader(
 ```
 
 **Expected JSONL schema:**
+
 ```json
-{"id": "event_1", "prompt": "Describe Apollo 11.", "reference": "Apollo 11 launched...", "samples": ["Apollo 11...", "NASA's mission..."]}
+{
+  "id": "event_1",
+  "prompt": "Describe Apollo 11.",
+  "reference": "Apollo 11 launched...",
+  "samples": ["Apollo 11...", "NASA's mission..."]
+}
 ```
 
 ---
@@ -301,14 +298,15 @@ Evaluate SelfCheck-NLI on FEVER claims (fact verification dataset).
 
 **Sample Results (20 FEVER claims):**
 
-| Claim | Label | Avg NLI Score |
-|-------|-------|---------------|
-| Paris is the capital of France. | SUPPORTS | 0.067 |
-| The Earth is flat. | REFUTES | 0.158 |
-| Water boils at 100°C at sea level. | SUPPORTS | 0.191 |
-| Albert Einstein developed relativity. | SUPPORTS | 0.291 |
+| Claim                                 | Label    | Avg NLI Score |
+| ------------------------------------- | -------- | ------------- |
+| Paris is the capital of France.       | SUPPORTS | 0.067         |
+| The Earth is flat.                    | REFUTES  | 0.158         |
+| Water boils at 100°C at sea level.    | SUPPORTS | 0.191         |
+| Albert Einstein developed relativity. | SUPPORTS | 0.291         |
 
 **Interpretation:**
+
 - **Low scores (< 0.1)**: LLM responses are consistent across samples → likely factual
 - **High scores (> 0.3)**: LLM responses contradict each other → potential hallucination or ambiguity
 
@@ -377,6 +375,7 @@ pytest tests/ --cov=selfcheckgpt --cov-report=term-missing
 ```
 
 **Test breakdown:**
+
 - `test_smoke_placeholders.py`: 6 mocked tests for core scorers (MQAG, BERTScore, N-gram, NLI, LLM Prompt, API Prompt)
 - `test_new_modules.py`: 25 tests for decomposition, orchestrator, prompt caching, data loaders
 
@@ -386,18 +385,21 @@ All tests run on CPU without downloading models.
 
 ## Dataset
 
-The `wiki_bio_gpt3_hallucination` dataset consists of 238 annotated passages. 
+The `wiki_bio_gpt3_hallucination` dataset consists of 238 annotated passages.
 
 ### Load via HuggingFace
+
 ```python
 from datasets import load_dataset
 dataset = load_dataset("potsawee/wiki_bio_gpt3_hallucination")
 ```
 
 ### Manual Download
+
 Download from [Google Drive](https://drive.google.com/file/d/1AyQ7u9nYlZgUZLm5JBDx6cFFWB__EsNv/view?usp=share_link).
 
 Each instance contains:
+
 - `gpt3_text`: GPT-3 generated passage
 - `wiki_bio_text`: Actual Wikipedia passage
 - `gpt3_sentences`: Sentences split using spaCy
@@ -410,18 +412,18 @@ Each instance contains:
 
 Results on the `wiki_bio_gpt3_hallucination` dataset:
 
-| Method               |  NonFact (AUC-PR)  |  Factual (AUC-PR)  |   Ranking (PCC)   |
-|----------------------|:------------------:|:------------------:|:-----------------:|
-| Random Guessing      |        72.96       |        27.04       |         -         |
-| GPT-3 Avg(-logP)     |        83.21       |        53.97       |       57.04       |
-| SelfCheck-BERTScore  |        81.96       |        44.23       |       58.18       |
-| SelfCheck-QA         |        84.26       |        48.14       |       61.07       |
-| SelfCheck-Unigram    |        85.63       |        58.47       |       64.71       |
-| SelfCheck-NLI        |        92.50       |        66.08       |       74.14       |
-| SelfCheck-Prompt (Llama2-7B)     |   89.05   |   63.06   |   61.52   |
-| SelfCheck-Prompt (Llama2-13B)    |   91.91   |   64.34   |   75.44   |
-| SelfCheck-Prompt (Mistral-7B)    |   91.31   |   62.76   |   74.46   |
-| **SelfCheck-Prompt (gpt-3.5-turbo)** | **93.42** | **67.09** | **78.32** |
+| Method                               | NonFact (AUC-PR) | Factual (AUC-PR) | Ranking (PCC) |
+| ------------------------------------ | :--------------: | :--------------: | :-----------: |
+| Random Guessing                      |      72.96       |      27.04       |       -       |
+| GPT-3 Avg(-logP)                     |      83.21       |      53.97       |     57.04     |
+| SelfCheck-BERTScore                  |      81.96       |      44.23       |     58.18     |
+| SelfCheck-QA                         |      84.26       |      48.14       |     61.07     |
+| SelfCheck-Unigram                    |      85.63       |      58.47       |     64.71     |
+| SelfCheck-NLI                        |      92.50       |      66.08       |     74.14     |
+| SelfCheck-Prompt (Llama2-7B)         |      89.05       |      63.06       |     61.52     |
+| SelfCheck-Prompt (Llama2-13B)        |      91.91       |      64.34       |     75.44     |
+| SelfCheck-Prompt (Mistral-7B)        |      91.31       |      62.76       |     74.46     |
+| **SelfCheck-Prompt (gpt-3.5-turbo)** |    **93.42**     |    **67.09**     |   **78.32**   |
 
 ---
 
@@ -430,6 +432,7 @@ Results on the `wiki_bio_gpt3_hallucination` dataset:
 We ran fresh evaluations on WikiBio (50 passages) and FEVER (50 claims) using the new scripts.
 
 ### How to Reproduce
+
 - WikiBio (all scorers):  
   `python demo/experiments/wikibio/run_wikibio_eval.py --limit 50 --scorers nli ngram bertscore --device mps`
 - FEVER (Groq + NLI):  
@@ -441,17 +444,18 @@ We ran fresh evaluations on WikiBio (50 passages) and FEVER (50 claims) using th
 
 **WikiBio (50 passages)** — file: `demo/experiments/wikibio/results/wikibio_results.json`
 
-| Method | NonFact AUC-PR | Factual AUC-PR | Pearson | Paper NonFact | Paper Factual | Paper Pearson |
-|--------|----------------|----------------|---------|---------------|---------------|---------------|
-| nli | 92.25 | 59.24 | 49.98 | 92.50 | 66.08 | 74.14 |
-| ngram | 83.02 | 38.01 | 19.84 | - | - | - |
-| bertscore | 82.56 | 35.76 | 17.57 | 81.96 | 44.23 | 58.18 |
+| Method    | NonFact AUC-PR | Factual AUC-PR | Pearson | Paper NonFact | Paper Factual | Paper Pearson |
+| --------- | -------------- | -------------- | ------- | ------------- | ------------- | ------------- |
+| nli       | 92.25          | 59.24          | 49.98   | 92.50         | 66.08         | 74.14         |
+| ngram     | 83.02          | 38.01          | 19.84   | -             | -             | -             |
+| bertscore | 82.56          | 35.76          | 17.57   | 81.96         | 44.23         | 58.18         |
 
 **FEVER (50 claims, NLI via Groq)** — file: `demo/experiments/fever/results/fever_eval_results.json`
-- SUPPORTS mean NLI: 0.1059 (std 0.1787, n=24)  
-- REFUTES mean NLI: 0.1831 (std 0.2282, n=26)  
-- Separation AUC (SUPPORTS vs REFUTES): 0.6795  
-- Cohen’s d: 0.3770  
+
+- SUPPORTS mean NLI: 0.1059 (std 0.1787, n=24)
+- REFUTES mean NLI: 0.1831 (std 0.2282, n=26)
+- Separation AUC (SUPPORTS vs REFUTES): 0.6795
+- Cohen’s d: 0.3770
 - Interpretation: SUPPORTS < REFUTES on average → expected behavior
 
 See `demo/results_summary.md` for consolidated tables and reproducibility notes.
@@ -482,12 +486,6 @@ tests/
 ├── test_smoke_placeholders.py # Core scorer tests (mocked)
 └── test_new_modules.py        # New module tests
 ```
-
----
-
-## Acknowledgements
-
-This work is supported by Cambridge University Press & Assessment (CUP&A), a department of The Chancellor, Masters, and Scholars of the University of Cambridge, and the Cambridge Commonwealth, European & International Trust.
 
 ---
 
